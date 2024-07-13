@@ -1,0 +1,16 @@
+C:\dotnetcore\eshop\eshop\eshop.Application\bin\Debug\net8.0\eshop.Application.deps.json
+C:\dotnetcore\eshop\eshop\eshop.Application\bin\Debug\net8.0\eshop.Application.dll
+C:\dotnetcore\eshop\eshop\eshop.Application\bin\Debug\net8.0\eshop.Application.pdb
+C:\dotnetcore\eshop\eshop\eshop.Application\bin\Debug\net8.0\eshop.Entities.dll
+C:\dotnetcore\eshop\eshop\eshop.Application\bin\Debug\net8.0\eshop.Entities.pdb
+C:\dotnetcore\eshop\eshop\eshop.Application\obj\Debug\net8.0\eshop.Application.csproj.AssemblyReference.cache
+C:\dotnetcore\eshop\eshop\eshop.Application\obj\Debug\net8.0\eshop.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\dotnetcore\eshop\eshop\eshop.Application\obj\Debug\net8.0\eshop.Application.AssemblyInfoInputs.cache
+C:\dotnetcore\eshop\eshop\eshop.Application\obj\Debug\net8.0\eshop.Application.AssemblyInfo.cs
+C:\dotnetcore\eshop\eshop\eshop.Application\obj\Debug\net8.0\eshop.Application.csproj.CoreCompileInputs.cache
+C:\dotnetcore\eshop\eshop\eshop.Application\obj\Debug\net8.0\eshop.Application.sourcelink.json
+C:\dotnetcore\eshop\eshop\eshop.Application\obj\Debug\net8.0\eshop.Ap.32C5BB42.Up2Date
+C:\dotnetcore\eshop\eshop\eshop.Application\obj\Debug\net8.0\eshop.Application.dll
+C:\dotnetcore\eshop\eshop\eshop.Application\obj\Debug\net8.0\refint\eshop.Application.dll
+C:\dotnetcore\eshop\eshop\eshop.Application\obj\Debug\net8.0\eshop.Application.pdb
+C:\dotnetcore\eshop\eshop\eshop.Application\obj\Debug\net8.0\ref\eshop.Application.dll

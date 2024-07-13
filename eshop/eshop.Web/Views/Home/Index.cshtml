@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<Product>
 @{
     ViewData["Title"] = "Home Page";
+    var counter = 0;
+    string className = string.Empty;
 }
 
 <div class="text-center">
@@ -10,7 +12,12 @@
 
 <div class="row">
     @foreach(var product in Model)
-    {
+    { 
+        if (counter != 0 && counter % 4 == 0)
+        {
+            @:</div>
+            @:<div class="row mt-2">
+        }
         <div class="col-3">
             <div class="card" >
                 <img src="@product.ImageURL" class="card-img-top" alt="@product.Name">
@@ -22,5 +29,21 @@
                 </div>
             </div>
         </div>
+
+        counter++;
     }
 </div>
+
+<div class="row">
+    <div class="col-12">
+        <ul class="pagination pagination-lg">
+            @for(int pageNo = 1; pageNo <= ViewBag.PageCount; pageNo++)
+            {
+                className = ViewBag.ActivePage == pageNo ? "active" : "";
+                <li class="page-item @className"><a class="page-link" asp-action="Index" asp-route-page="@pageNo">@pageNo</a></li>
+            }
+        </ul>
+    </div>
+</div>
+  
+

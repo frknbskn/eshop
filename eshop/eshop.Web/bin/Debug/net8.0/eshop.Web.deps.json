@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "eshop.Web/1.0.0": {
+        "dependencies": {
+          "eshop.Entities": "1.0.0"
+        },
+        "runtime": {
+          "eshop.Web.dll": {}
+        }
+      },
+      "eshop.Entities/1.0.0": {
+        "runtime": {
+          "eshop.Entities.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "eshop.Web/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "eshop.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

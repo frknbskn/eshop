@@ -1,7 +1,10 @@
+using eshop.Application;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IProductService,FakeProductService>();
 
 var app = builder.Build();
 

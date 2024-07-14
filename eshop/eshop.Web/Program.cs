@@ -25,6 +25,17 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "category",
+    pattern: "{category?}/Sayfa{page}" ,
+    defaults: new { controller = "Home", action = "Index", page = 1 });
+
+
+app.MapControllerRoute(
+    name: "paging",
+    pattern:"Sayfa{page}",
+    defaults: new {controller = "Home", action = "Index",page=1});
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 

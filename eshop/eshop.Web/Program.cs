@@ -1,4 +1,6 @@
 using eshop.Application;
+using eshop.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IProductService,FakeProductService>();
 builder.Services.AddScoped<ICategoryService,FakeCategoryService>();
+
+var connectionString = builder.Configuration.GetConnectionString("db");
+builder.Services.AddDbContext<EshopDbContext>(opt => opt.UseSqlServer(connectionString));
 
 var app = builder.Build();
 

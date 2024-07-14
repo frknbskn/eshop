@@ -10,6 +10,7 @@ namespace eshop.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IProductService productService;
+        
 
         public HomeController(ILogger<HomeController> logger, IProductService productService)
         {
@@ -17,10 +18,11 @@ namespace eshop.Web.Controllers
             this.productService = productService;
         }
 
-        public IActionResult Index(int page=1)
+        public IActionResult Index(string? category,int page=1)
         {
             //var productService = new FakeProductService();
-            var products = productService.GetProducts();
+            //var products = productService.GetProducts();
+            var products = category == null ? productService.GetProducts() : productService.GetProductsByCategory(category);
 
             var pageSize = 4;
             var total = products.Count();

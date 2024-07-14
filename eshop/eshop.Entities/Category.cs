@@ -10,5 +10,7 @@ namespace eshop.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        //Navigation Property
+        public IList<Product> Products { get; set; }
     }
 }

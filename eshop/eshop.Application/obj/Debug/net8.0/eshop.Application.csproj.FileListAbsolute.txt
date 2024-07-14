@@ -14,3 +14,5 @@ C:\dotnetcore\eshop\eshop\eshop.Application\obj\Debug\net8.0\eshop.Application.d
 C:\dotnetcore\eshop\eshop\eshop.Application\obj\Debug\net8.0\refint\eshop.Application.dll
 C:\dotnetcore\eshop\eshop\eshop.Application\obj\Debug\net8.0\eshop.Application.pdb
 C:\dotnetcore\eshop\eshop\eshop.Application\obj\Debug\net8.0\ref\eshop.Application.dll
+C:\dotnetcore\eshop\eshop\eshop.Application\bin\Debug\net8.0\eshop.Infrastructure.dll
+C:\dotnetcore\eshop\eshop\eshop.Application\bin\Debug\net8.0\eshop.Infrastructure.pdb

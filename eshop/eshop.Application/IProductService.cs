@@ -12,5 +12,7 @@ namespace eshop.Application
         IEnumerable<Product> GetProducts();
 
         IEnumerable<Product> GetProductsByCategory(string categoryName);
+        Product GetProduct(int id);
+
     }
 }

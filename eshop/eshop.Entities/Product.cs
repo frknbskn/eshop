@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace eshop.Entities
 {
     //[Table(name:"Ürünler")]
-    public class Product
+    public class Product : IEntity
     {
         [Required]
         [MaxLength(150)]

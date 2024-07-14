@@ -10,6 +10,8 @@ namespace eshop.Infrastructure.Repositories
     public interface IProductRepository : IRepository<Product>
     {
        
-        public IEnumerable<Product> Search(string name);
+         IEnumerable<Product> Search(string name);
+        IEnumerable<Product> GetProductByCategory(string categoryName);
+
     }
 }

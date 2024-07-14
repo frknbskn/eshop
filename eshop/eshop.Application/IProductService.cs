@@ -9,8 +9,8 @@ namespace eshop.Application
 {
     public interface IProductService
     {
-        List<Product> GetProducts();
+        IEnumerable<Product> GetProducts();
 
-        List<Product> GetProductsByCategory(string categoryName);
+        IEnumerable<Product> GetProductsByCategory(string categoryName);
     }
 }

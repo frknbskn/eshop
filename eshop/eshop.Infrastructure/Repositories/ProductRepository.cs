@@ -46,6 +46,12 @@ namespace eshop.Infrastructure.Repositories
             return dbContext.Products.FirstOrDefault(p=>p.Id == id);
         }
 
+        public IEnumerable<Product> GetProductByCategory(string categoryName)
+        {
+            return dbContext.Products.Include(p => p.Category)
+                                             .Where(p => p.Category.Name.Contains(categoryName)).ToList();
+        }
+
         public IEnumerable<Product> Search(string name)
         {
             return dbContext.Products.Where(p => p.Name.Contains(name)); //,StringComparison.OrdinalIgnoreCase

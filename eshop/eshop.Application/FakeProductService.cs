@@ -2,7 +2,7 @@
 
 namespace eshop.Application
 {
-    public class FakeProductService : IProductService
+    public class FakeProductService //: IProductService
     {
         private List<Product> products;
         public FakeProductService()
@@ -30,6 +30,8 @@ namespace eshop.Application
         {
             return products.Where(p=> p.Category.Name.Equals(categoryName)).ToList();   
         }
+
+       
     }
         
 }

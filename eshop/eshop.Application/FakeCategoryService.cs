@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace eshop.Application
 {
-    public class FakeCategoryService : ICategoryService
+    public class FakeCategoryService //: ICategoryService
     {
         public IEnumerable<Category> GetCategories()
         {

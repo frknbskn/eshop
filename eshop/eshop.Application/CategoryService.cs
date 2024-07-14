@@ -19,7 +19,7 @@ namespace eshop.Application
 
         public IEnumerable<Category> GetCategories()
         {
-            throw new NotImplementedException();
+            return categoryRepository.GetAll();
         }
     }
 }

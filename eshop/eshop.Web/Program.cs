@@ -7,8 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IProductService,FakeProductService>();
-builder.Services.AddScoped<ICategoryService,FakeCategoryService>();
+builder.Services.AddScoped<IProductService,ProductService>();
+builder.Services.AddScoped<ICategoryService,CategoryService>();
 builder.Services.AddScoped<IProductRepository,ProductRepository>();
 builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
 

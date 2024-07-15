@@ -1,6 +1,7 @@
 using eshop.Application;
 using eshop.Infrastructure.Data;
 using eshop.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,8 +12,17 @@ builder.Services.AddScoped<IProductService,ProductService>();
 builder.Services.AddScoped<ICategoryService,CategoryService>();
 builder.Services.AddScoped<IProductRepository,ProductRepository>();
 builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
+builder.Services.AddScoped<IUserService,UserService>();
 builder.Services.AddSession(opt =>
 opt.IdleTimeout = TimeSpan.FromMinutes(20));
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                                  .AddCookie(option =>
+                                  {
+                                      option.LoginPath = "/Users/Login";
+                                      option.ReturnUrlParameter = "gidilecekSayfa";
+                                      option.AccessDeniedPath = "/Users/AccessDenied";
+                                  });
 
 var connectionString = builder.Configuration.GetConnectionString("db");
 builder.Services.AddDbContext<EshopDbContext>(opt => opt.UseSqlServer(connectionString));
@@ -33,6 +43,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseSession();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

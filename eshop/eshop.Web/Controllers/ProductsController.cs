@@ -1,17 +1,24 @@
 ﻿using eshop.Application;
 using eshop.Application.DataTransferObjects;
 using eshop.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace eshop.Web.Controllers
 {
-    public class Products : Controller
+    public class Roles
+    {
+        public const string Admin = "Admin";
+        public const string AdminOrEdit = "Admin,Editor";
+    }
+    [Authorize(Roles = Roles.AdminOrEdit)]
+    public class ProductsController : Controller
     {
         private readonly IProductService productService;
         private readonly ICategoryService categoryService;
 
-        public Products(IProductService productService,ICategoryService categoryService)
+        public ProductsController(IProductService productService,ICategoryService categoryService)
         {
             this.productService = productService;
             this.categoryService = categoryService;

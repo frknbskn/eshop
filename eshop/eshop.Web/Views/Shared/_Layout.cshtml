@@ -32,10 +32,24 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Shopping" asp-action="Index">Sepetim(@totalQuantity)</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Ürün İşlemleri</a>
-                        </li>
+                        @if(User.IsInRole("Admin") || User.IsInRole("Editor"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Ürün İşlemleri</a>
+                            </li>
+                        }
+                        
                     </ul>
+                    <div class="flex-column">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @User.Identity.Name <a asp-area="" asp-controller="Users" asp-action="Logout">(Çıkış)</a>
+                        }
+                        else
+                        {
+                            <a asp-controller="Users" asp-action ="Login">Giriş</a>
+                        }
+                    </div>
                 </div>
             </div>
         </nav>

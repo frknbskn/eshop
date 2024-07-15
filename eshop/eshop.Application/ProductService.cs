@@ -1,4 +1,5 @@
-﻿using eshop.Entities;
+﻿using eshop.Application.DataTransferObjects;
+using eshop.Entities;
 using eshop.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -31,6 +32,20 @@ namespace eshop.Application
         public IEnumerable<Product> GetProductsByCategory(string categoryName)
         {
             return productRepository.GetProductByCategory(categoryName).AsEnumerable();
+        }
+
+        public void CreateProduct(CreateProductRequest productRequest)
+        {
+            var product = new Product
+            {
+                CategoryId = productRequest.CategoryId,
+                Description = productRequest.Description,
+                ImageURL = productRequest.ImageURL,
+                Name = productRequest.Name,
+                Price = productRequest.Price,
+                Rating = productRequest.Rating
+            };
+            productRepository.Create(product);
         }
     }
 }

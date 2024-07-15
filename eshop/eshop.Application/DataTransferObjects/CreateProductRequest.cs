@@ -1,14 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace eshop.Entities
+namespace eshop.Application.DataTransferObjects
 {
-    //[Table(name:"Ürünler")]
-    public class Product : IEntity
+    public class CreateProductRequest
     {
         [Required]
         [MaxLength(150)]
-        public int Id { get; set; }
         public string Name { get; set; }
         [DataType(DataType.MultilineText)]
         public string? Description { get; set; }
@@ -16,8 +18,7 @@ namespace eshop.Entities
         public double? Rating { get; set; }
         [DataType(DataType.ImageUrl)]
         public string? ImageURL { get; set; } = "https://cdn.dsmcdn.com/ty1018/product/media/images/prod/SPM/PIM/20231019/13/899e8cb7-16a0-3617-bae0-555eacd2e713/1_org.jpg";
-        public Category Category { get; set; }
+        
         public int CategoryId { get; set; }
-
     }
 }

@@ -4,7 +4,7 @@ namespace eshop.Web.Models
 {
     public class ShoppingCardCollection
     {
-        public List<BasketItem> Products { get; set; }
+        public List<BasketItem> Products { get; set; } = new List<BasketItem>();
         public void Add(BasketItem product)
         {
             var existingProduct = Products.Find(p => p.Product.Id == product.Product.Id);

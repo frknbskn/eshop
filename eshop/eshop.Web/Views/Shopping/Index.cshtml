@@ -1,0 +1,39 @@
+﻿@model ShoppingCardCollection
+
+
+@if(Model.Products.Count == 0)
+{
+    <div class="alert alert-danger">Sepetinizde ürün yok!</div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ürün  Adı</th>
+                <th></th>
+                <th>Adet</th>
+                <th>Ara Toplam</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var product in Model.Products)
+            {
+                <tr>
+                    <td>@product.Product.Name</td>
+                    <td><img src="@product.Product.ImageURL" /></td>
+                    <td>@product.Quantity</td>
+                    <td>@(product.Product.Price * product.Quantity)</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Toplam:</td>
+                <td>@Model.GetTotalPrice()</td>
+            </tr>
+        </tfoot>
+    </table>
+}
+
+

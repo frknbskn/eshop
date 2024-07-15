@@ -1,5 +1,6 @@
 ﻿using eshop.Application;
 using eshop.Application.DataTransferObjects;
+using eshop.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -37,6 +38,28 @@ namespace eshop.Web.Controllers
             
             return View();
         }
+        public IActionResult Edit(int id)
+        {
+            ViewBag.Categories = categoryService.GetCategories();
+            var product = productService.GetProduct(id);
+            if(product != null)
+            {
+                return View(product);
+            }
+            ModelState.AddModelError("exist", $"{id}'li ürün bulunamadı.");
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Edit(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                productService.UpdateProduct(product);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(product);
+        }
+
         private IEnumerable<SelectListItem> getCategoriesForSelect()
         {
             var categories = categoryService.GetCategories();

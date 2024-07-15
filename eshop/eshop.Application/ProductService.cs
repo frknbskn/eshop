@@ -47,5 +47,10 @@ namespace eshop.Application
             };
             productRepository.Create(product);
         }
+
+        public void UpdateProduct(Product product)
+        {
+            productRepository.Update(product);
+        }
     }
 }

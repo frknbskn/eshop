@@ -16,7 +16,7 @@ namespace eshop.Entities
         public double? Rating { get; set; }
         [DataType(DataType.ImageUrl)]
         public string? ImageURL { get; set; } = "https://cdn.dsmcdn.com/ty1018/product/media/images/prod/SPM/PIM/20231019/13/899e8cb7-16a0-3617-bae0-555eacd2e713/1_org.jpg";
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
         public int CategoryId { get; set; }
 
     }

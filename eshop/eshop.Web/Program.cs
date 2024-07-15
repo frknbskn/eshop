@@ -11,6 +11,8 @@ builder.Services.AddScoped<IProductService,ProductService>();
 builder.Services.AddScoped<ICategoryService,CategoryService>();
 builder.Services.AddScoped<IProductRepository,ProductRepository>();
 builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
+builder.Services.AddSession(opt =>
+opt.IdleTimeout = TimeSpan.FromMinutes(20));
 
 var connectionString = builder.Configuration.GetConnectionString("db");
 builder.Services.AddDbContext<EshopDbContext>(opt => opt.UseSqlServer(connectionString));
@@ -29,6 +31,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
 app.UseAuthorization();
 

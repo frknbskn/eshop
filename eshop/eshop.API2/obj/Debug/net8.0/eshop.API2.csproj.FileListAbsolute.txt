@@ -77,3 +77,4 @@ C:\dotnetcore\eshop\eshop\eshop.API2\bin\Debug\net8.0\eshop.Extensions.pdb
 C:\dotnetcore\eshop\eshop\eshop.API2\bin\Debug\net8.0\eshop.Application.pdb
 C:\dotnetcore\eshop\eshop\eshop.API2\bin\Debug\net8.0\eshop.Entities.pdb
 C:\dotnetcore\eshop\eshop\eshop.API2\bin\Debug\net8.0\eshop.Infrastructure.pdb
+C:\dotnetcore\eshop\eshop\eshop.API2\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

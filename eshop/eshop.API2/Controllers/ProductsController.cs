@@ -1,4 +1,5 @@
-﻿using eshop.Application;
+﻿using eshop.API2.Filters;
+using eshop.Application;
 using eshop.Application.DataTransferObjects;
 using eshop.Entities;
 using Microsoft.AspNetCore.Http;
@@ -53,8 +54,13 @@ namespace eshop.API2.Controllers
         }
 
         [HttpPut("{id}")]
+        [RangeException(Max =1000,Min =10)]
         public IActionResult Update(int id,Product product)
         {
+           /* if (id<10 || id>1000)
+            {
+                throw new ArgumentOutOfRangeException(nameof(id),actualValue:id,message:string.Empty);
+            } */
             if (productService.IsProductExist(id))
             {
                 if (ModelState.IsValid)

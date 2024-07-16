@@ -3,16 +3,18 @@ using eshop.Infrastructure.Data;
 using eshop.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using eshop.Extensions;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IProductService,ProductService>();
-builder.Services.AddScoped<ICategoryService,CategoryService>();
-builder.Services.AddScoped<IProductRepository,ProductRepository>();
-builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
-builder.Services.AddScoped<IUserService,UserService>();
+//builder.Services.AddScoped<IProductService, ProductService>();
+//builder.Services.AddScoped<ICategoryService, CategoryService>();
+//builder.Services.AddScoped<IProductRepository, ProductRepository>();
+//builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+//builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddSession(opt =>
 opt.IdleTimeout = TimeSpan.FromMinutes(20));
 
@@ -25,8 +27,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
                                   });
 
 var connectionString = builder.Configuration.GetConnectionString("db");
-builder.Services.AddDbContext<EshopDbContext>(opt => opt.UseSqlServer(connectionString));
-
+//builder.Services.AddDbContext<EshopDbContext>(opt => opt.UseSqlServer(connectionString));
+builder.Services.AddNecessariesForApp(connectionString);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

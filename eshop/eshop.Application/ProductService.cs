@@ -34,7 +34,7 @@ namespace eshop.Application
             return productRepository.GetProductByCategory(categoryName).AsEnumerable();
         }
 
-        public void CreateProduct(CreateProductRequest productRequest)
+        public int CreateProduct(CreateProductRequest productRequest)
         {
             var product = new Product
             {
@@ -46,11 +46,27 @@ namespace eshop.Application
                 Rating = productRequest.Rating
             };
             productRepository.Create(product);
+            return product.Id;
         }
 
         public void UpdateProduct(Product product)
         {
             productRepository.Update(product);
+        }
+
+        public IEnumerable<Product> SearchProductsByName(string name)
+        {
+            return productRepository.Search(name).AsEnumerable();
+        }
+
+        public bool IsProductExist(int id)
+        {
+            return productRepository.IsExists(id);
+        }
+
+        public void DeleteProduct(int id)
+        {
+            productRepository.Delete(id);
         }
     }
 }

@@ -14,7 +14,11 @@ namespace eshop.Application
 
         IEnumerable<Product> GetProductsByCategory(string categoryName);
         Product GetProduct(int id);
-        void CreateProduct(CreateProductRequest productRequest);
+        int CreateProduct(CreateProductRequest productRequest);
         void UpdateProduct(Product product);
+        IEnumerable<Product> SearchProductsByName(string name);
+
+        bool IsProductExist(int id);
+        void DeleteProduct(int id);
     }
 }

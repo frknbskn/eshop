@@ -15,5 +15,6 @@ namespace eshop.Infrastructure.Repositories
         void Update(T entity);
         void Delete(int id);
         void Create(T entity);
+        bool IsExists(int id);
     }
 }

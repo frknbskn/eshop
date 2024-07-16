@@ -52,9 +52,14 @@ namespace eshop.Infrastructure.Repositories
                                              .Where(p => p.Category.Name.Contains(categoryName)).ToList();
         }
 
+        public bool IsExists(int id)
+        {
+            return dbContext.Products.Any(p=>p.Id==id); 
+        }
+
         public IEnumerable<Product> Search(string name)
         {
-            return dbContext.Products.Where(p => p.Name.Contains(name)); //,StringComparison.OrdinalIgnoreCase
+            return dbContext.Products.Where(p => p.Name.Contains(name,StringComparison.OrdinalIgnoreCase)); //,StringComparison.OrdinalIgnoreCase
         }
 
         public void Update(Product entity)

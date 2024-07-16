@@ -44,6 +44,11 @@ namespace eshop.Infrastructure.Repositories
             return dbContext.Categories.SingleOrDefault(p => p.Id == id);
         }
 
+        public bool IsExists(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Category entity)
         {
             dbContext.Categories.Update(entity);

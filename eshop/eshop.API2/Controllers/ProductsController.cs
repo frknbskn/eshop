@@ -30,7 +30,7 @@ namespace eshop.API2.Controllers
         public IActionResult GetProduct(int id)
         {
             var product = productService.GetProduct(id);
-            return product == null ? NotFound(new {message ="belirtilen id'de ürün yok."}) : Ok(product);
+            return product == null ? NotFound(new { message = "belirtilen id'de ürün yok." }) : Ok(product);
         }
         [HttpGet("[action]/{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -38,7 +38,7 @@ namespace eshop.API2.Controllers
         public IActionResult Search(string name)
         {
             var products = productService.SearchProductsByName(name);
-            return products == null ? NotFound(new {message = "belirtilen isimde ürün yok."}) : Ok(products);
+            return products == null ? NotFound(new { message = "belirtilen isimde ürün yok." }) : Ok(products);
         }
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -54,35 +54,34 @@ namespace eshop.API2.Controllers
         }
 
         [HttpPut("{id}")]
-        [RangeException(Max =1000,Min =10)]
-        public IActionResult Update(int id,Product product)
+        [RangeException(Max = 1000, Min = 10)]
+        [IsExist]
+        public IActionResult Update(int id, Product product)
         {
-           /* if (id<10 || id>1000)
+            /* if (id<10 || id>1000)
+             {
+                 throw new ArgumentOutOfRangeException(nameof(id),actualValue:id,message:string.Empty);
+             } */
+
+            if (ModelState.IsValid)
             {
-                throw new ArgumentOutOfRangeException(nameof(id),actualValue:id,message:string.Empty);
-            } */
-            if (productService.IsProductExist(id))
-            {
-                if (ModelState.IsValid)
-                {
-                    productService.UpdateProduct(product);
-                    return Ok(product);
-                }
-                return BadRequest(ModelState);
+                productService.UpdateProduct(product);
+                return Ok(product);
             }
-            return NotFound(new { message = $"{id}" });
+            return BadRequest(ModelState);
+
+
         }
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [IsExist]
         public IActionResult Delete(int id)
         {
-            if (productService.IsProductExist(id))
-            {
-                productService.DeleteProduct(id);
-                return Ok();
-            }
-            return NotFound();
+
+            productService.DeleteProduct(id);
+            return Ok();
+
         }
     }
 }
